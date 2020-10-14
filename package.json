@@ -4,8 +4,8 @@
 	"description": "Yet Another Binary Search Tree",
 	"main": "index.js",
 	"scripts": {
-    "test": "jest",
-    "postinstall": "node postinstall.js"
+		"test": "jest",
+		"postinstall": "node postinstall.js"
 	},
 	"repository": {
 		"type": "git",
@@ -23,5 +23,8 @@
 	"bugs": {
 		"url": "https://github.com/petrussola/yabst/issues"
 	},
-	"homepage": "https://github.com/petrussola/yabst#readme"
+	"homepage": "https://github.com/petrussola/yabst#readme",
+	"devDependencies": {
+		"jest": "^26.5.3"
+	}
 }

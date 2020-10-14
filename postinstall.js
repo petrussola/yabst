@@ -1,0 +1,1 @@
+console.log("Hope you like the package. Any bugs, please open an issue.")

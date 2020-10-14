@@ -1,0 +1,30 @@
+{
+	"name": "yabst",
+	"version": "1.0.0",
+	"description": "Yet Another Binary Search Tree",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"postinstall": "node postinstall.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/petrussola/yabst.git"
+	},
+	"keywords": [
+		"binary search tree"
+	],
+	"author": {
+		"name": "Pere Sola Claver",
+		"email": "pere.solaclaver@gmail.com",
+		"url": "https://peresola.com"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/petrussola/yabst/issues"
+	},
+	"homepage": "https://github.com/petrussola/yabst#readme",
+	"devDependencies": {
+		"jest": "^26.5.3"
+	}
+}

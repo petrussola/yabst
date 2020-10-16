@@ -1,49 +1,121 @@
-class BinarySearchTree {
+class Node {
 	constructor(value) {
-		// value of root node
 		this.value = value;
-		// value of left node
 		this.left = null;
-		// value of right node
 		this.right = null;
+	}
+}
+
+class BinarySearchTree {
+	constructor() {
+		this.root = null;
 	}
 
 	// clean up left and right from root node
 	cleanup() {
-		this.left = null;
-		this.right = null;
+		this.root = null;
 		return this;
 	}
 
 	// insert value
 	insert(value) {
-		// if root node is empty, set root node value to value
-		if (value === this.value) {
-			this.value = value;
-			// if value < root value
-		} else if (value < this.value) {
-			// if this.left is null
-			if (this.left === null) {
-				// set this.left to new bst passing the value
-				this.left = new BinarySearchTree(value);
+		// create new node with data
+		const newNode = new Node(value);
+		// if root is null, set root no newNode
+		if (this.root === null) {
+			this.root = newNode;
+			return this;
+			// otherwise, call insertNode on the root
+		} else {
+			this.insertNode(this.root, newNode);
+		}
+	}
 
-				// otherwise, call insert on this.left
+	insertNode(node, newNode) {
+		// if newNode.value < node.value
+		if (newNode.value < node.value) {
+			// if node.left === null,
+			if (node.left === null) {
+				// node.left = newNode
+				node.left = newNode;
+				// otherwise
 			} else {
-				this.left.insert(value);
+				// call insertNode on the node.left
+				this.insertNode(node.left, newNode);
 			}
-			// if value > root value
-		} else if (value > this.value) {
-			// if this.right is null
-			if (this.right === null) {
-				// set this.right to new bst passing the value
-				this.right = new BinarySearchTree(value);
-				// otherwise, call insert on this.right
+			// if newNode.value > node.value
+		} else if (newNode.value > node.value) {
+			// if node.right === null
+			if (node.right === null) {
+				// node.right = newNode
+				node.right = newNode;
+				// otherwise
 			} else {
-				this.right.insert(value);
+				// call insertNode on the node.right
+				this.insertNode(node.right, newNode);
 			}
 		}
-		// return bst
-		return this;
+	}
+
+	findMinNode(node) {
+		// base case - if left is null, return this.value
+		if (node.left === null) {
+			return node;
+			// else, call findMinValue on the left node
+		} else {
+			return this.findMinNode(node.left);
+		}
+	}
+
+	remove(data) {
+		// if root is null, return null
+		if (this.root === null) {
+			return null;
+			// else, call removeNode passing this.root and data as argument
+		} else {
+			this.removeNode(this.root, data);
+		}
+	}
+
+	removeNode(node, data) {
+		// if data < node.value
+		if (data < node.value) {
+			// call removeNode passing node.left
+			node.left = this.removeNode(node.left, data);
+			return node;
+			// if data > node.value
+		} else if (data > node.value) {
+			// call removeNode passing node.right
+			node.right = this.removeNode(node.right, data);
+			return node;
+			// if data === node.data
+		} else {
+			// if node.left and node.right are null
+			if (node.left === null && node.right === null) {
+				// node = null
+				node = null;
+				// return null
+				return null;
+				// if node.left === null
+			} else if (node.left === null) {
+				// node = node.right
+				node = node.right;
+				return node;
+				// if node.right === null
+			} else if (node.right === null) {
+				// node = node.left
+				node = node.left;
+				// if left and right have data
+			} else {
+				// set temp to min node of node.right
+				const temp = this.findMinNode(node.right);
+				// node.value = temp.value
+				node.value = temp.value;
+				// this.removeNode(node.right, temp.value)
+				node.right = this.removeNode(node.right, temp.value);
+				return node;
+			}
+		}
 	}
 }
 

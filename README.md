@@ -32,3 +32,28 @@ bst.getRootNode()
 // Returns node if found, null if not found
 bst.search(10)
 ```
+
+### Methods ###
+
+`bst.insert(integer)`
+Inserts integer in the Binary Search Tree
+
+`bst.remove(integer)`
+Removes value in the Binary Search Tree. Value will be replaced by minimum value from the right hand side node and tree
+
+`bst.search(integer)`
+Returns node if value is found. Returns null if not found or Binary Search Tree does not exist.
+
+
+`bst.cleanup()` 
+Clears Binary Search Tree and sets root node to null.
+
+### Licence ###
+
+Copyright 2020 Pere Solà
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

@@ -1,6 +1,6 @@
 {
 	"name": "yabst",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Yet Another Binary Search Tree",
 	"main": "index.js",
 	"scripts": {
@@ -26,5 +26,8 @@
 	"homepage": "https://github.com/petrussola/yabst#readme",
 	"devDependencies": {
 		"jest": "^26.5.3"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
 	}
 }

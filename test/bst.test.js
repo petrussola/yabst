@@ -1,4 +1,4 @@
-const BinarySearchTree = require('./bst');
+const BinarySearchTree = require('../lib/bst');
 
 let bst = new BinarySearchTree();
 
@@ -63,4 +63,31 @@ test('Remove values', () => {
 	expect(bst.root.value).toEqual(12);
 	expect(bst.root.right.value).toEqual(16);
 	expect(bst.root.left.value).toEqual(8);
+});
+
+test('Get root node', () => {
+	expect(bst.getRootNode().value).toEqual(10);
+	bst.remove(10);
+	expect(bst.getRootNode().value).toEqual(12);
+	bst.remove(12);
+	expect(bst.getRootNode().value).toEqual(15);
+});
+
+test('Search node', () => {
+	expect(bst.search(12).value).toEqual(12);
+	expect(bst.search(15).value).toEqual(15);
+	expect(bst.search(7).value).toEqual(7);
+	expect(bst.search(3).value).toEqual(3);
+	expect(bst.search(1)).toEqual(null);
+	expect(bst.search(10).value).toEqual(10);
+	bst.remove(10);
+	expect(bst.search(10)).toEqual(null);
+	expect(bst.search(16).value).toEqual(16);
+	bst.remove(16);
+	expect(bst.search(16)).toEqual(null);
+	bst.insert(16);
+	expect(bst.search(16).value).toEqual(16);
+	expect(bst.search(25)).toEqual(null);
+	bst.insert(25);
+	expect(bst.search(25).value).toEqual(25);
 });

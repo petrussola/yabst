@@ -1,6 +1,6 @@
 {
 	"name": "yabst",
-	"version": "1.0.3",
+	"version": "1.0.2",
 	"description": "Yet Another Binary Search Tree",
 	"main": "index.js",
 	"scripts": {

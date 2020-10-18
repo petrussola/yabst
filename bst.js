@@ -123,13 +123,29 @@ class BinarySearchTree {
 		return this.root;
 	}
 
-	search(node, value) {
+	// search value method
+	search(value) {
+		// if bst has no root, return null
+		if (this.root === null) {
+			return null;
+			// otherwise, call searchNode passing node and value
+		} else {
+			return this.searchNode(this.root, value);
+		}
+	}
+
+	// auxiliary method to search value in node
+	searchNode(node, value) {
+		// return null if node is empty
 		if (node === null) {
 			return null;
+			// if value is lower than node value, call method on left
 		} else if (value < node.value) {
-			return this.search(node.left, value);
+			return this.searchNode(node.left, value);
+			// if value is higher than node value, call method on right
 		} else if (value > node.value) {
-			return this.search(node.right, value);
+			return this.searchNode(node.right, value);
+			// if value matches node's value, return node
 		} else {
 			return node;
 		}

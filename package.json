@@ -26,8 +26,5 @@
 	"homepage": "https://github.com/petrussola/yabst#readme",
 	"devDependencies": {
 		"jest": "^26.5.3"
-	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/"
 	}
 }

@@ -1,4 +1,4 @@
-const BinarySearchTree = require('./bst');
+const BinarySearchTree = require('../lib/bst');
 
 let bst = new BinarySearchTree();
 

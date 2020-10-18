@@ -1,3 +1,5 @@
+![npm](https://img.shields.io/npm/v/yabst?style=plastic)
+
 # Binary Search Tree for Node.js #
 
 This module implements a Binary Search Tree. And it is my first npm module ever. Go easy on the issues.

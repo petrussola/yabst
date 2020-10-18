@@ -122,6 +122,18 @@ class BinarySearchTree {
 	getRootNode() {
 		return this.root;
 	}
+
+	search(node, value) {
+		if (node === null) {
+			return null;
+		} else if (value < node.value) {
+			return this.search(node.left, value);
+		} else if (value > node.value) {
+			return this.search(node.right, value);
+		} else {
+			return node;
+		}
+	}
 }
 
 module.exports = BinarySearchTree;

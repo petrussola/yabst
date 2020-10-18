@@ -66,9 +66,28 @@ test('Remove values', () => {
 });
 
 test('Get root node', () => {
-	let root = bst.getRootNode();
-	expect(root.value).toEqual(10);
+	expect(bst.getRootNode().value).toEqual(10);
 	bst.remove(10);
-	root = bst.getRootNode();
-	expect(root.value).toEqual(12);
+	expect(bst.getRootNode().value).toEqual(12);
+	bst.remove(12);
+	expect(bst.getRootNode().value).toEqual(15);
+});
+
+test('Search node', () => {
+	expect(bst.search(bst.root, 12).value).toEqual(12);
+	expect(bst.search(bst.root, 15).value).toEqual(15);
+	expect(bst.search(bst.root, 7).value).toEqual(7);
+	expect(bst.search(bst.root, 3).value).toEqual(3);
+	expect(bst.search(bst.root, 1)).toEqual(null);
+	expect(bst.search(bst.root, 10).value).toEqual(10);
+	bst.remove(10);
+	expect(bst.search(bst.root, 10)).toEqual(null);
+	expect(bst.search(bst.root, 16).value).toEqual(16);
+	bst.remove(16);
+	expect(bst.search(bst.root, 16)).toEqual(null);
+	bst.insert(16);
+	expect(bst.search(bst.root, 16).value).toEqual(16);
+	expect(bst.search(bst.root, 25)).toEqual(null);
+	bst.insert(25);
+	expect(bst.search(bst.root, 25).value).toEqual(25);
 });

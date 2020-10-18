@@ -64,3 +64,11 @@ test('Remove values', () => {
 	expect(bst.root.right.value).toEqual(16);
 	expect(bst.root.left.value).toEqual(8);
 });
+
+test('Get root node', () => {
+	let root = bst.getRootNode();
+	expect(root.value).toEqual(10);
+	bst.remove(10);
+	root = bst.getRootNode();
+	expect(root.value).toEqual(12);
+});

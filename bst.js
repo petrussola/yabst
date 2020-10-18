@@ -105,6 +105,7 @@ class BinarySearchTree {
 			} else if (node.right === null) {
 				// node = node.left
 				node = node.left;
+				return node;
 				// if left and right have data
 			} else {
 				// set temp to min node of node.right
@@ -116,6 +117,10 @@ class BinarySearchTree {
 				return node;
 			}
 		}
+	}
+
+	getRootNode() {
+		return this.root;
 	}
 }
 

@@ -30,5 +30,5 @@ bst.getRootNode()
 
 // Search value 
 // Returns node if found, null if not found
-bst.search(bst.root, 10)
+bst.search(10)
 ```

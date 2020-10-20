@@ -32,6 +32,19 @@ test('Insert values', () => {
 	expect(bst.root.right.left.right).toEqual(null);
 });
 
+test('Insert non numerical values', () => {
+	const testError = () => {
+		bst.insert('10');
+	};
+	bst.cleanup();
+	expect(testError).toThrowError();
+	bst.insert(10);
+	expect(bst.root.value).toEqual(10);
+	expect(testError).toThrowError();
+	expect(bst.root.value).toEqual(10);
+	expect(bst.root.left).toEqual(null);
+});
+
 test('Find Minimum Value', () => {
 	let temp = bst.findMinNode(bst.root);
 	expect(temp.value).toEqual(2);
@@ -90,4 +103,10 @@ test('Search node', () => {
 	expect(bst.search(25)).toEqual(null);
 	bst.insert(25);
 	expect(bst.search(25).value).toEqual(25);
+});
+
+test('Numeric input helper', () => {
+	expect(bst.isNumericInput(10)).toEqual(true);
+	expect(bst.isNumericInput('ten')).toEqual(false);
+	expect(bst.isNumericInput('10')).toEqual(false);
 });

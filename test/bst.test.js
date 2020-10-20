@@ -33,14 +33,19 @@ test('Insert values', () => {
 });
 
 test('Insert non numerical values', () => {
-	const testError = () => {
+	const testErrorString = () => {
 		bst.insert('10');
 	};
+	const testErrorUndefined = () => {
+		bst.insert(undefined);
+	};
 	bst.cleanup();
-	expect(testError).toThrowError();
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
 	bst.insert(10);
 	expect(bst.root.value).toEqual(10);
-	expect(testError).toThrowError();
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
 	expect(bst.root.value).toEqual(10);
 	expect(bst.root.left).toEqual(null);
 });
@@ -76,6 +81,23 @@ test('Remove values', () => {
 	expect(bst.root.value).toEqual(12);
 	expect(bst.root.right.value).toEqual(16);
 	expect(bst.root.left.value).toEqual(8);
+});
+
+test('Remove non numerical value', () => {
+	const testErrorString = () => {
+		bst.remove('10');
+	};
+	const testErrorUndefined = () => {
+		bst.remove(undefined);
+	};
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	expect(bst.root.value).toEqual(10);
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	expect(bst.root.value).toEqual(10);
+	bst.remove(15);
+	expect(bst.root.right.value).toEqual(16);
 });
 
 test('Get root node', () => {

@@ -32,6 +32,24 @@ test('Insert values', () => {
 	expect(bst.root.right.left.right).toEqual(null);
 });
 
+test('Insert non numerical values', () => {
+	const testErrorString = () => {
+		bst.insert('10');
+	};
+	const testErrorUndefined = () => {
+		bst.insert(undefined);
+	};
+	bst.cleanup();
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	bst.insert(10);
+	expect(bst.root.value).toEqual(10);
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	expect(bst.root.value).toEqual(10);
+	expect(bst.root.left).toEqual(null);
+});
+
 test('Find Minimum Value', () => {
 	let temp = bst.findMinNode(bst.root);
 	expect(temp.value).toEqual(2);
@@ -65,6 +83,23 @@ test('Remove values', () => {
 	expect(bst.root.left.value).toEqual(8);
 });
 
+test('Remove non numerical value', () => {
+	const testErrorString = () => {
+		bst.remove('10');
+	};
+	const testErrorUndefined = () => {
+		bst.remove(undefined);
+	};
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	expect(bst.root.value).toEqual(10);
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	expect(bst.root.value).toEqual(10);
+	bst.remove(15);
+	expect(bst.root.right.value).toEqual(16);
+});
+
 test('Get root node', () => {
 	expect(bst.getRootNode().value).toEqual(10);
 	bst.remove(10);
@@ -90,4 +125,27 @@ test('Search node', () => {
 	expect(bst.search(25)).toEqual(null);
 	bst.insert(25);
 	expect(bst.search(25).value).toEqual(25);
+});
+
+test('Search with no numeric input', () => {
+	const testErrorString = () => {
+		bst.search('10');
+	};
+	const testErrorUndefined = () => {
+		bst.search(undefined);
+	};
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	expect(bst.search(12).value).toEqual(12);
+	expect(bst.search(15).value).toEqual(15);
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	bst.remove(10);
+	expect(bst.search(10)).toEqual(null);
+})
+
+test('Numeric input helper', () => {
+	expect(bst.isNumericInput(10)).toEqual(true);
+	expect(bst.isNumericInput('ten')).toEqual(false);
+	expect(bst.isNumericInput('10')).toEqual(false);
 });

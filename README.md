@@ -1,6 +1,6 @@
 ![npm](https://img.shields.io/npm/v/yabst?style=plastic)
 
-# Binary Search Tree for Node.js #
+# Yet Another Binary Search Tree for Node.js #
 
 This module implements a Binary Search Tree. And it is my first npm module ever. Go easy on the issues.
 
@@ -37,15 +37,14 @@ bst.search(10)
 
 ### Methods ###
 
-`bst.insert(integer)`
-Inserts integer in the Binary Search Tree
+`bst.insert(number)`
+Inserts number in the Binary Search Tree. Throws an error if trying to pass value other than a number.
 
-`bst.remove(integer)`
-Removes value in the Binary Search Tree. Value will be replaced by minimum value from the right hand side node and tree
+`bst.remove(number)`
+Removes number from the Binary Search Tree. Value of node will be replaced by minimum value from the right hand side node and tree. Throws an error if trying to pass value other than a number.
 
-`bst.search(integer)`
-Returns node if value is found. Returns null if not found or Binary Search Tree does not exist.
-
+`bst.search(number)`
+Returns node if value is found. Returns null if not found or Binary Search Tree does not exist. Throws an error if trying to pass value other than a number.
 
 `bst.cleanup()` 
 Clears Binary Search Tree and sets root node to null.

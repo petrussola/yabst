@@ -127,6 +127,23 @@ test('Search node', () => {
 	expect(bst.search(25).value).toEqual(25);
 });
 
+test('Search with no numeric input', () => {
+	const testErrorString = () => {
+		bst.search('10');
+	};
+	const testErrorUndefined = () => {
+		bst.search(undefined);
+	};
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	expect(bst.search(12).value).toEqual(12);
+	expect(bst.search(15).value).toEqual(15);
+	expect(testErrorString).toThrowError();
+	expect(testErrorUndefined).toThrowError();
+	bst.remove(10);
+	expect(bst.search(10)).toEqual(null);
+})
+
 test('Numeric input helper', () => {
 	expect(bst.isNumericInput(10)).toEqual(true);
 	expect(bst.isNumericInput('ten')).toEqual(false);
